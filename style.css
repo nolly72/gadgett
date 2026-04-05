@@ -1,318 +1,122 @@
-/* 1. Глобальные настройки и переменные */
+/* 1. Глобальные переменные агентства */
 :root {
     --bg-dark: #050505;
     --text-white: #ffffff;
-    --text-dim: #888888;
-    --nolly-accent: #3b82f6; /* Энергичный синий NOLLY */
+    --text-dim: #999999;
+    --nolly-gold: #c5a059; /* Дорогой золотой акцент вместо синего */
+    --nolly-success: #10b981; /* Зеленый для пульсации */
     --font-stack: 'Inter', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-stack); overflow-x: hidden; line-height: 1.6; }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: var(--font-stack);
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-/* 2. Навигация (Navbar) */
+/* 2. Навигация со статусом */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 60px;
-    z-index: 1000;
-    backdrop-filter: blur(20px);
-    background: rgba(0, 0, 0, 0.3);
+    position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
+    align-items: center; padding: 25px 60px; z-index: 1000;
+    backdrop-filter: blur(20px); background: rgba(0, 0, 0, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo {
-    font-weight: 900;
-    font-size: 22px;
-    letter-spacing: -1px;
-    font-style: italic;
-    text-transform: uppercase;
-}
+.logo { font-weight: 900; font-size: 20px; letter-spacing: -1px; text-transform: uppercase; }
+.logo span { color: var(--nolly-gold); }
 
-.logo span {
-    color: var(--nolly-accent);
-}
+.nav-links { list-style: none; display: flex; gap: 35px; }
+.nav-links a { text-decoration: none; color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+.nav-links a:hover { color: var(--text-white); }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 40px;
+/* Пульсирующая точка */
+.nav-status { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 8px 15px; border-radius: 50px; }
+.pulse-dot { width: 8px; height: 8px; background: var(--nolly-success); border-radius: 50%; position: relative; }
+.pulse-dot::after {
+    content: ''; position: absolute; width: 100%; height: 100%; background: var(--nolly-success);
+    border-radius: 50%; animation: pulse-ring 1.5s infinite;
 }
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dim);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 600;
-    transition: 0.4s ease;
-}
-
-.nav-links a:hover {
-    color: var(--text-white);
-}
-
-.btn-contact {
-    text-decoration: none;
-    color: var(--text-white);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-contact:hover {
-    background: var(--text-white);
-    color: #000;
-    transform: scale(1.05);
-}
+.status-text { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
 
 /* 3. Главный экран (Hero) */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    perspective: 1500px; /* Для 3D наклона заголовка */
-}
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; perspective: 1200px; }
+.hero-content { z-index: 10; }
+.subtitle { color: var(--nolly-gold); font-size: 11px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; display: block; }
+.main-title { font-size: 9vw; font-weight: 900; letter-spacing: -4px; line-height: 0.9; margin-bottom: 30px; font-style: italic; }
+.main-title em { color: #1a1a1a; font-style: normal; }
 
-.hero-content {
-    z-index: 5;
-    transition: transform 0.1s ease-out; /* Плавность для JS-параллакса */
-}
+.description { color: var(--text-dim); font-size: 15px; max-width: 600px; margin: 0 auto 40px; letter-spacing: 1px; }
 
-.subtitle {
-    display: block;
-    color: var(--nolly-accent);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    margin-bottom: 25px;
-    animation: fadeInDown 1s ease-out;
-}
-
-.main-title {
-    font-size: 12vw;
-    font-weight: 900;
-    letter-spacing: -6px;
-    line-height: 0.85;
-    font-style: italic;
-    animation: zoomIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.main-title em {
-    color: #151515;
-    font-style: normal;
-}
-
-.divider {
-    width: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #444, transparent);
-    margin: 45px auto;
-    animation: growDivider 2s forwards 0.8s;
-}
-
-.description {
-    color: var(--text-dim);
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    max-width: 550px;
-    margin: 0 auto;
-    opacity: 0;
-    animation: fadeInUp 1s forwards 1.8s;
-}
-
-/* Интерактивное свечение (Glow) */
-.glow {
-    position: fixed; /* Привязано к окну для JS */
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1;
-    transform: translate(-50%, -50%); /* Центрирование под курсором */
-    filter: blur(80px);
-}
-
-/* 4. Характеристики (Features) */
-.features {
-    padding: 180px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-
-.feature-card {
-    position: relative;
-    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 70px 45px;
-    border-radius: 30px;
-    overflow: hidden;
-    transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.feature-card:hover {
-    transform: translateY(-15px);
-    border-color: rgba(59, 130, 246, 0.4);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.card-num {
-    color: var(--nolly-accent);
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 5px;
-    margin-bottom: 25px;
-    display: block;
-}
-
-.feature-card h3 {
-    font-size: 26px;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.feature-card p {
-    color: var(--text-dim);
-    font-size: 15px;
-}
-
-.card-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 75%);
-    opacity: 0;
-    transition: 0.8s;
-}
-
-.feature-card:hover .card-glow {
-    opacity: 1;
-}
-
-/* 5. Футер (CTA) */
-.footer {
-    padding: 120px 20px;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.cta-box h2 {
-    font-size: clamp(32px, 5vw, 56px);
-    margin-bottom: 25px;
-    letter-spacing: -2px;
-}
-
+/* Кнопки */
+.hero-btns { display: flex; gap: 20px; justify-content: center; }
 .cta-button {
-    text-decoration: none;
-    background: var(--text-white);
-    color: #000;
-    padding: 22px 60px;
-    border-radius: 100px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    display: inline-block;
-    transition: 0.4s;
+    text-decoration: none; background: var(--text-white); color: #000; padding: 20px 45px;
+    border-radius: 5px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; transition: 0.4s;
 }
+.cta-button:hover { background: var(--nolly-gold); color: white; transform: translateY(-3px); }
 
-.cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+.secondary-btn {
+    text-decoration: none; color: var(--text-white); border: 1px solid rgba(255,255,255,0.2);
+    padding: 20px 45px; border-radius: 5px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
 }
+.secondary-btn:hover { background: rgba(255,255,255,0.05); border-color: var(--text-white); }
 
-/* 6. Скролл и анимации */
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+/* 4. Секция преимуществ */
+.features { padding: 120px 20px; background: #080808; }
+.section-label { text-align: center; color: var(--nolly-gold); font-size: 12px; text-transform: uppercase; letter-spacing: 8px; margin-bottom: 60px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 
-.line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, var(--nolly-accent), transparent);
-}
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes growDivider {
-    from { width: 0; }
-    to { width: 350px; }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 7. Адаптивность */
-@media (max-width: 768px) {
-    .navbar { padding: 20px 30px; }
-    .nav-links { display: none; }
-    .main-title { font-size: 16vw; }
-    .features { padding: 100px 20px; }
-}
-
-/* Начальное состояние карточек для JS-анимации */
 .feature-card {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #0c0c0c; border: 1px solid rgba(255,255,255,0.03); padding: 50px;
+    border-radius: 0px; /* Квадратные формы выглядят более строго для бизнеса */
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); position: relative; overflow: hidden;
+}
+.feature-card:hover { border-color: var(--nolly-gold); transform: translateY(-10px); }
+.card-num { color: var(--nolly-gold); font-weight: 800; font-size: 14px; margin-bottom: 30px; display: block; }
+.feature-card h3 { font-size: 24px; margin-bottom: 20px; letter-spacing: -1px; }
+.feature-card p { color: var(--text-dim); font-size: 15px; }
+
+/* 5. Футер */
+.footer { padding: 100px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-links { display: flex; gap: 30px; justify-content: center; margin-top: 30px; }
+.footer-link { color: var(--text-white); text-decoration: none; font-weight: 700; border-bottom: 1px solid var(--nolly-gold); padding-bottom: 5px; }
+
+/* Анимации */
+@keyframes pulse-ring {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
 }
 
-/* Состояние, которое включает JS */
-.feature-card.active {
+@keyframes growDivider { from { width: 0; } to { width: 300px; } }
+.divider { width: 0; height: 1px; background: var(--nolly-gold); margin: 30px auto; animation: growDivider 2s forwards 0.5s; }
+
+/* Свечение курсора */
+.glow {
+    position: fixed; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+    border-radius: 50%; pointer-events: none; z-index: 1; filter: blur(60px); transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 20px; }
+    .nav-links, .nav-status { display: none; }
+    .main-title { font-size: 14vw; }
+    .hero-btns { flex-direction: column; }
+}
+
+
+/* Начальное состояние для анимации скролла */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+/* Состояние после появления */
+.revealed {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Дополнительная задержка для карточек, чтобы они появлялись по очереди */
+.feature-card:nth-child(1) { transition-delay: 0.1s; }
+.feature-card:nth-child(2) { transition-delay: 0.2s; }
+.feature-card:nth-child(3) { transition-delay: 0.3s; }
