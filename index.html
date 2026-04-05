@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOLLY Agency | Срочный выкуп недвижимости</title>
+    <title>NOLLY Agency | Премиальный выкуп недвижимости</title>
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://googleapis.com">
     <link href="https://googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -14,74 +15,119 @@
     <nav class="navbar">
         <div class="logo">NOLLY<span>.</span>AGENCY</div>
         <ul class="nav-links">
-            <li><a href="#services">Услуги</a></li>
+            <li><a href="#philosophy">Философия</a></li>
+            <li><a href="#quiz">Подбор решения</a></li>
             <li><a href="#steps">Процесс</a></li>
             <li><a href="#about">О нас</a></li>
         </ul>
         <div class="nav-status">
             <span class="pulse-dot"></span>
-            <span class="status-text">Работаем сейчас</span>
+            <span class="status-text">Москва-Сити • Online</span>
         </div>
     </nav>
 
     <!-- Главный экран -->
     <header class="hero" id="hero-section">
         <div class="hero-content">
-            <span class="subtitle">Инвестиционно-риелторское агентство</span>
-            <h1 class="main-title">ВЫКУП<em>.</em>ЗА 24ч</h1>
+            <span class="subtitle">Private Equity & Real Estate Group</span>
+            <h1 class="main-title">ЭСТЕТИКА<em>.</em>СДЕЛОК</h1>
             <div class="divider"></div>
-            <p class="description">
-                Получите до 95% от рыночной стоимости недвижимости. <br>
-                Деньги в день обращения. Без комиссий и скрытых платежей.
-            </p>
+            <p class="description">Срочный выкуп активов любой сложности. Конфиденциально. Профессионально. Мгновенно.</p>
             <div class="hero-btns">
-                <a href="#steps" class="cta-button">Оценить объект</a>
-                <a href="#" class="secondary-btn">Консультация юриста</a>
+                <a href="#quiz" class="cta-button">Начать опрос</a>
+                <a href="#steps" class="secondary-btn">Узнать процесс</a>
             </div>
         </div>
-        
         <div class="glow" id="cursor-glow"></div>
-        <div class="scroll-indicator"><div class="line"></div></div>
     </header>
 
-    <!-- Характеристики / Услуги -->
-    <section class="features" id="services">
+    <!-- Секция: Философия -->
+    <section class="philosophy" id="philosophy">
         <div class="container">
-            <div class="section-label">Наши преимущества</div>
-            <div class="features-grid">
-                <div class="feature-card" id="card-1">
-                    <span class="card-num">01</span>
-                    <h3>Срочный выкуп</h3>
-                    <p>Собственный капитал позволяет нам выкупать объекты за 24 часа без участия банков.</p>
-                    <div class="card-glow"></div>
+            <div class="section-label">Наша Философия</div>
+            <div class="philosophy-content">
+                <h2>Мы не просто выкупаем квадратные метры. Мы освобождаем ваше время для будущего.</h2>
+                <p>В мире NOLLY Agency недвижимость — это ликвидный инструмент, а не бремя. Наша миссия — обеспечить безупречный сервис, где каждая деталь сделки пропитана уважением к вашему статусу и приватности.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: Квиз (Опрос) -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="section-label">Интерактивный подбор</div>
+            <div class="quiz-card">
+                <h3>В какой сфере вам нужна помощь?</h3>
+                <p>Выберите тип объекта для моментального анализа ситуации:</p>
+                <div class="quiz-options">
+                    <button class="quiz-opt" data-type="living">Жилая недвижимость</button>
+                    <button class="quiz-opt" data-type="comm">Коммерческие площади</button>
+                    <button class="quiz-opt" data-type="residence">Загородные резиденции</button>
+                    <button class="quiz-opt" data-type="assets">Земельные активы</button>
                 </div>
-                <div class="feature-card" id="card-2">
-                    <span class="card-num">02</span>
-                    <h3>Любая сложность</h3>
-                    <p>Работаем с обременениями, ипотекой, долгами по ЖКХ и долями в праве собственности.</p>
-                    <div class="card-glow"></div>
+                <div id="quiz-result" class="quiz-result-text"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: Процесс (10 шагов) -->
+    <section class="steps" id="steps">
+        <div class="container">
+            <div class="section-label">Этапы выкупа</div>
+            <div class="steps-grid">
+                <div class="step-item"><span>01</span> Экспресс-анализ объекта по фото/видео</div>
+                <div class="step-item"><span>02</span> Выезд ведущего эксперта на локацию</div>
+                <div class="step-item"><span>03</span> Глубокая юридическая проверка документов</div>
+                <div class="step-item"><span>04</span> Формирование финального финансового оффера</div>
+                <div class="step-item"><span>05</span> Согласование условий в офисе Москва-Сити</div>
+                <div class="step-item"><span>06</span> Подготовка полного пакета договора (ДКП)</div>
+                <div class="step-item"><span>07</span> Нотариальное заверение и подписание</div>
+                <div class="step-item"><span>08</span> Безопасная закладка средств в ячейку</div>
+                <div class="step-item"><span>09</span> Регистрация перехода права собственности</div>
+                <div class="step-item"><span>10</span> Полный расчет и финальная передача ключей</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: О нас -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label">Штаб-квартира</div>
+                    <h2>Москва-Сити</h2>
+                    <p>Пресненская набережная, 12<br>Башня «Федерация», 74 этаж</p>
+                    <p class="working-hours">Пн-Вс: 09:00 — 21:00</p>
                 </div>
-                <div class="feature-card" id="card-3">
-                    <span class="card-num">03</span>
-                    <h3>Юр. чистота</h3>
-                    <p>Бесплатное юридическое сопровождение сделки и полная конфиденциальность данных.</p>
-                    <div class="card-glow"></div>
+                <div class="about-contacts">
+                    <p class="phone">8 (800) 555-NOLLY</p>
+                    <a href="mailto:deal@nolly.agency" class="email">deal@nolly.agency</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер / Финал -->
-    <footer class="footer">
-        <div class="cta-box">
-            <h2>Продайте недвижимость выгодно</h2>
-            <p>NOLLY Agency — ваш надежный партнер в сложных сделках.</p>
-            <div class="footer-links">
-                <a href="tel:+70000000000" class="footer-link">8 (800) 555-35-35</a>
-                <a href="https://t.me" class="footer-link">Telegram</a>
+    <!-- ИИ-Ассистент -->
+    <div class="ai-widget" id="ai-container">
+        <div class="ai-chat-window" id="ai-window">
+            <div class="ai-header">
+                <span>NOLLY AI Assistant</span>
+                <button id="ai-close">×</button>
+            </div>
+            <div class="ai-content">
+                <div id="ai-messages">
+                    <p class="ai-bot-msg">Здравствуйте! Я интеллектуальный помощник NOLLY. Выберите интересующий вас вопрос:</p>
+                </div>
+                <div class="ai-questions" id="ai-questions-box">
+                    <!-- Вопросы загрузятся через JS -->
+                </div>
             </div>
         </div>
-        <p class="copyright">© 2024 NOLLY AGENCY. Лицензия №174-БР.</p>
+        <button class="ai-toggle-btn" id="ai-toggle">AI</button>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 NOLLY AGENCY. PRIVATE EQUITY GROUP. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
     </footer>
 
     <script src="script.js"></script>
