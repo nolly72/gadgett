@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NOLLY Agency | Выкуп недвижимости в Москва-Сити</title>
-    <!-- Премиальный шрифт Inter -->
+    <title>NOLLY Agency | Премиальный выкуп недвижимости</title>
+    <!-- Подключаем мягкий премиальный шрифт Manrope -->
     <link rel="preconnect" href="https://googleapis.com">
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Навигация -->
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="container nav-flex">
             <div class="logo">NOLLY<span>.</span>AGENCY</div>
             <ul class="nav-links">
                 <li><a href="#philosophy">Философия</a></li>
@@ -23,86 +23,81 @@
             </ul>
             <div class="nav-status">
                 <span class="pulse-dot"></span>
-                <span class="status-text">City Online</span>
+                <span class="status-text">Moscow City</span>
             </div>
         </div>
     </nav>
 
     <!-- Главный экран -->
     <header class="hero">
-        <div class="hero-container">
+        <div class="container hero-flex">
             <div class="hero-content">
-                <span class="subtitle">Real Estate Investment Group</span>
-                <h1 class="main-title">ЭСТЕТИКА<em>.</em>СДЕЛОК</h1>
-                <div class="hero-divider"></div>
-                <p class="description">Срочный выкуп активов любой сложности. Конфиденциально. Профессионально. Мгновенно.</p>
+                <span class="label">Private Investment Group</span>
+                <h1 class="main-title">NOLLY AGENCY</h1>
+                <div class="hero-line"></div>
+                <p class="hero-desc">Срочный выкуп активов любой сложности. Конфиденциально. Профессионально. Мгновенно.</p>
                 <div class="hero-btns">
-                    <a href="#quiz" class="btn-gold">Начать оценку</a>
-                    <a href="#steps" class="btn-outline">Наш процесс</a>
+                    <a href="#quiz" class="btn-primary">Начать оценку</a>
+                    <a href="#steps" class="btn-secondary">Наш процесс</a>
                 </div>
             </div>
         </div>
-        <!-- Интерактивный фон -->
+        <!-- Интерактивное свечение -->
         <div class="glow" id="cursor-glow"></div>
-        <div class="scroll-down">
-            <div class="mouse"></div>
-        </div>
     </header>
 
     <!-- Секция: Философия -->
-    <section class="section philosophy" id="philosophy">
+    <section class="section" id="philosophy">
         <div class="container">
-            <div class="label">Our Philosophy</div>
-            <div class="philosophy-grid">
-                <div class="ph-main">
-                    <h2>Мы освобождаем ваше время для будущего.</h2>
-                    <p>В мире NOLLY Agency недвижимость — это ликвидный инструмент, а не бремя. Мы создаем безупречный сервис, где каждая деталь пропитана уважением к вашему статусу.</p>
-                </div>
+            <span class="section-label">Our Philosophy</span>
+            <div class="philosophy-box">
+                <h2>Мы освобождаем ваше время для будущего.</h2>
+                <p>В мире NOLLY Agency недвижимость — это ликвидный инструмент, а не бремя. Мы создаем безупречный сервис, где каждая деталь пропитана уважением к вашему статусу.</p>
             </div>
         </div>
     </section>
 
-    <!-- Секция: Квиз (Опрос) -->
-    <section class="section quiz" id="quiz">
+    <!-- Секция: Квиз -->
+    <section class="section bg-soft" id="quiz">
         <div class="container">
-            <div class="label">Interactive Analysis</div>
-            <div class="quiz-wrapper">
-                <div class="quiz-header">
+            <span class="section-label">Quick Analysis</span>
+            <div class="quiz-container">
+                <div class="quiz-info">
                     <h3>В какой сфере вам нужна помощь?</h3>
-                    <p>Выберите тип объекта для моментального анализа ситуации</p>
+                    <p>Выберите тип объекта для моментального анализа</p>
                 </div>
                 <div class="quiz-grid">
                     <div class="quiz-card" data-type="1">
-                        <div class="card-icon">01</div>
+                        <span class="card-num">01</span>
                         <h4>Жилая</h4>
-                        <p>Квартиры, апартаменты, пентхаусы</p>
+                        <p>Квартиры и апартаменты</p>
                     </div>
                     <div class="quiz-card" data-type="2">
-                        <div class="card-icon">02</div>
+                        <span class="card-num">02</span>
                         <h4>Коммерция</h4>
-                        <p>Офисы, стрит-ритейл, БЦ</p>
+                        <p>Офисы и ритейл</p>
                     </div>
                     <div class="quiz-card" data-type="3">
-                        <div class="card-icon">03</div>
+                        <span class="card-num">03</span>
                         <h4>Загородная</h4>
-                        <p>Резиденции, виллы, усадьбы</p>
+                        <p>Резиденции и виллы</p>
                     </div>
                     <div class="quiz-card" data-type="4">
-                        <div class="card-icon">04</div>
+                        <span class="card-num">04</span>
                         <h4>Активы</h4>
-                        <p>Земля, девелоперские проекты</p>
+                        <p>Земля и проекты</p>
                     </div>
                 </div>
-                <div id="quiz-feedback" class="quiz-feedback"></div>
+                <div id="quiz-result"></div>
             </div>
         </div>
     </section>
 
     <!-- Секция: Процесс (10 шагов) -->
-    <section class="section steps" id="steps">
+    <section class="section" id="steps">
         <div class="container">
-            <div class="label">Work Process</div>
-            <h2 class="section-title">10 шагов к сделке</h2>
+            <span class="section-label">Step by Step</span>
+            <h2 class="title-margin">Процесс выкупа</h2>
             <div class="steps-grid">
                 <div class="step-card"><span>01</span> Экспресс-анализ</div>
                 <div class="step-card"><span>02</span> Выезд эксперта</div>
@@ -111,7 +106,7 @@
                 <div class="step-card"><span>05</span> Встреча в Сити</div>
                 <div class="step-card"><span>06</span> Подготовка ДКП</div>
                 <div class="step-card"><span>07</span> Подписание</div>
-                <div class="step-card"><span>08</span> Ячейка / Аккредитив</div>
+                <div class="step-card"><span>08</span> Безопасный расчет</div>
                 <div class="step-card"><span>09</span> Регистрация</div>
                 <div class="step-card"><span>10</span> Передача ключей</div>
             </div>
@@ -119,35 +114,35 @@
     </section>
 
     <!-- Секция: О нас -->
-    <section class="section about" id="about">
+    <section class="section bg-soft" id="about">
         <div class="container">
-            <div class="about-flex">
-                <div class="about-info">
-                    <div class="label">Headquarters</div>
+            <div class="about-grid">
+                <div class="about-contact">
+                    <span class="section-label">Headquarters</span>
                     <h2>Москва-Сити</h2>
                     <p>Пресненская наб., 12<br>Башня Федерация, 74 этаж</p>
                 </div>
-                <div class="about-contacts">
-                    <a href="tel:+7800555NOLLY" class="big-phone">8 800 555 NOLLY</a>
-                    <p class="email">deal@nolly.agency</p>
+                <div class="about-cta">
+                    <a href="tel:88005550000" class="phone-link">8 800 555 NOLLY</a>
+                    <p class="email-text">deal@nolly.agency</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ИИ-Ассистент -->
-    <div class="ai-widget" id="ai-widget">
-        <div class="ai-panel" id="ai-panel">
-            <div class="ai-top">
-                <span>NOLLY AI</span>
-                <button id="ai-close-btn">✕</button>
+    <!-- ИИ Виджет -->
+    <div class="ai-box" id="ai-container">
+        <div class="ai-window" id="ai-window">
+            <div class="ai-head">
+                <span>NOLLY AI Assistant</span>
+                <button id="ai-close">✕</button>
             </div>
-            <div class="ai-chat" id="ai-chat-flow">
-                <p class="bot-text">Приветствуем. Я ИИ-ассистент NOLLY. Выберите тему вопроса:</p>
-                <div class="ai-q-box" id="ai-options"></div>
+            <div class="ai-body" id="ai-scroll">
+                <p class="bot-hi">Приветствуем. Я ИИ-ассистент NOLLY. Выберите тему:</p>
+                <div class="ai-list" id="ai-options"></div>
             </div>
         </div>
-        <button class="ai-trigger" id="ai-open-btn">AI</button>
+        <button class="ai-btn" id="ai-open">AI</button>
     </div>
 
     <footer class="footer">
