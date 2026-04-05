@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NOLLY Agency | Премиальный выкуп недвижимости</title>
-    <!-- Подключаем мягкий премиальный шрифт Manrope -->
+    <!-- Шрифт Manrope -->
     <link rel="preconnect" href="https://googleapis.com">
     <link href="https://googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Интерактивное свечение (теперь в самом начале body) -->
+    <div class="glow" id="cursor-glow"></div>
 
     <!-- Навигация -->
     <nav class="navbar">
@@ -32,7 +35,7 @@
     <header class="hero">
         <div class="container hero-flex">
             <div class="hero-content">
-                <span class="label">Private Investment Group</span>
+                <span class="section-label">Private Investment Group</span>
                 <h1 class="main-title">NOLLY AGENCY</h1>
                 <div class="hero-line"></div>
                 <p class="hero-desc">Срочный выкуп активов любой сложности. Конфиденциально. Профессионально. Мгновенно.</p>
@@ -42,8 +45,6 @@
                 </div>
             </div>
         </div>
-        <!-- Интерактивное свечение -->
-        <div class="glow" id="cursor-glow"></div>
     </header>
 
     <!-- Секция: Философия -->
@@ -67,22 +68,22 @@
                     <p>Выберите тип объекта для моментального анализа</p>
                 </div>
                 <div class="quiz-grid">
-                    <div class="quiz-card" data-type="1">
+                    <div class="quiz-card">
                         <span class="card-num">01</span>
                         <h4>Жилая</h4>
                         <p>Квартиры и апартаменты</p>
                     </div>
-                    <div class="quiz-card" data-type="2">
+                    <div class="quiz-card">
                         <span class="card-num">02</span>
                         <h4>Коммерция</h4>
                         <p>Офисы и ритейл</p>
                     </div>
-                    <div class="quiz-card" data-type="3">
+                    <div class="quiz-card">
                         <span class="card-num">03</span>
                         <h4>Загородная</h4>
                         <p>Резиденции и виллы</p>
                     </div>
-                    <div class="quiz-card" data-type="4">
+                    <div class="quiz-card">
                         <span class="card-num">04</span>
                         <h4>Активы</h4>
                         <p>Земля и проекты</p>
@@ -95,63 +96,53 @@
 
     <!-- Секция: Процесс (10 шагов) -->
     <section class="section" id="steps">
-    <div class="container">
-        <span class="section-label">Step by Step</span>
-        <h2 class="title-margin">Процесс выкупа</h2>
-        <div class="steps-grid">
-            <!-- 01 -->
-            <div class="step-card">
-                <div class="step-header"><span>01</span> Экспресс-анализ</div>
-                <div class="step-content">Предварительная оценка объекта по фото, видео и кадастровому номеру в течение 15 минут.</div>
-            </div>
-            <!-- 02 -->
-            <div class="step-card">
-                <div class="step-header"><span>02</span> Выезд эксперта</div>
-                <div class="step-content">Наш специалист приедет в удобное время для визуального осмотра и фиксации состояния объекта.</div>
-            </div>
-            <!-- 03 -->
-            <div class="step-card">
-                <div class="step-header"><span>03</span> Юр. аудит</div>
-                <div class="step-content">Проверка правоустанавливающих документов, наличия обременений и задолженностей юристами NOLLY.</div>
-            </div>
-            <!-- 04 -->
-            <div class="step-card">
-                <div class="step-header"><span>04</span> Финальный оффер</div>
-                <div class="step-content">Озвучиваем окончательную стоимость выкупа, которая не изменится в процессе сделки.</div>
-            </div>
-            <!-- 05 -->
-            <div class="step-card">
-                <div class="step-header"><span>05</span> Встреча в Сити</div>
-                <div class="step-content">Обсуждение деталей и подписание предварительных соглашений в нашем офисе в Башне Федерация.</div>
-            </div>
-            <!-- 06 -->
-            <div class="step-card">
-                <div class="step-header"><span>06</span> Подготовка ДКП</div>
-                <div class="step-content">Сбор необходимых справок и подготовка договора купли-продажи нашими специалистами.</div>
-            </div>
-            <!-- 07 -->
-            <div class="step-card">
-                <div class="step-header"><span>07</span> Подписание</div>
-                <div class="step-content">Нотариальное заверение сделки. Мы гарантируем полную юридическую чистоту и прозрачность.</div>
-            </div>
-            <!-- 08 -->
-            <div class="step-card">
-                <div class="step-header"><span>08</span> Безопасный расчет</div>
-                <div class="step-content">Закладка денежных средств в банковскую ячейку или использование системы аккредитивов.</div>
-            </div>
-            <!-- 09 -->
-            <div class="step-card">
-                <div class="step-header"><span>09</span> Регистрация</div>
-                <div class="step-content">Подача документов в Росреестр для перехода права собственности на объект.</div>
-            </div>
-            <!-- 10 -->
-            <div class="step-card">
-                <div class="step-header"><span>10</span> Передача ключей</div>
-                <div class="step-content">Финальный акт приема-передачи, получение ключей и полный доступ к денежным средствам.</div>
+        <div class="container">
+            <span class="section-label">Step by Step</span>
+            <h2 class="section-title">Процесс выкупа</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header"><span>01</span> Экспресс-анализ</div>
+                    <div class="step-content">Оценка объекта по фото и кадастровому номеру в течение 15 минут.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>02</span> Выезд эксперта</div>
+                    <div class="step-content">Визуальный осмотр объекта нашим специалистом в удобное для вас время.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>03</span> Юр. аудит</div>
+                    <div class="step-content">Проверка документов и обременений юридическим департаментом NOLLY.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>04</span> Финальный оффер</div>
+                    <div class="step-content">Озвучиваем итоговую стоимость, которая фиксируется в договоре.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>05</span> Встреча в Сити</div>
+                    <div class="step-content">Согласование деталей сделки в офисе Башни Федерация.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>06</span> Подготовка ДКП</div>
+                    <div class="step-content">Полное формирование пакета документов для перехода права собственности.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>07</span> Подписание</div>
+                    <div class="step-content">Нотариальное заверение сделки и подписание договора купли-продажи.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>08</span> Безопасный расчет</div>
+                    <div class="step-content">Использование банковских ячеек или аккредитивов для вашей защиты.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>09</span> Регистрация</div>
+                    <div class="step-content">Подача документов в Росреестр нашими юристами.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>10</span> Передача ключей</div>
+                    <div class="step-content">Финальный акт приема-передачи и полный доступ к средствам.</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Секция: О нас -->
     <section class="section bg-soft" id="about">
