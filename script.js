@@ -1,77 +1,171 @@
-// 1. БАЗА ЗНАНИЙ ИИ (10 ответов)
-const aiAnswers = [
-    { q: "Как быстро я получу расчет?", a: "Экспресс-оценка занимает 15 минут. Финальный оффер — в день обращения." },
-    { q: "Вы выкупаете доли?", a: "Да, мы работаем с долями, комнатами и сложными объектами с обременениями." },
-    { q: "Где ваш офис в Сити?", a: "Башня Федерация, 74 этаж. Работаем ежедневно с 09:00 до 21:00." },
-    { q: "Какой дисконт при выкупе?", a: "Мы предлагаем до 95% от рыночной стоимости. Всё честно и прозрачно." },
-    { q: "Вы гасите долги по ЖКХ?", a: "Да, мы полностью закрываем все задолженности и обременения при сделке." },
-    { q: "Нужны ли оригиналы документов?", a: "Для оценки достаточно фото или электронных копий выписок из ЕГРН." },
-    { q: "Как происходит оплата?", a: "Через безопасный аккредитив или банковскую ячейку. Деньги сразу." },
-    { q: "Вы выкупаете коммерцию?", a: "Да, NOLLY Agency выкупает офисные, торговые и складские площади." },
-    { q: "Это безопасно?", a: "Все сделки сопровождаются нашими юристами и заверяются нотариально." },
-    { q: "Как записаться на встречу?", a: "Нажмите 'Начать оценку' или позвоните нам по номеру в контактах." }
-];
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NOLLY Agency | Премиальный выкуп недвижимости</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// 2. ЛОГИКА ИИ-ВИДЖЕТА
-const aiBtn = document.getElementById('ai-open');
-const aiWin = document.getElementById('ai-window');
-const aiClose = document.getElementById('ai-close');
-const aiOptions = document.getElementById('ai-options');
-const aiScroll = document.getElementById('ai-scroll');
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">NOLLY<span>.</span>AGENCY</div>
+            <ul class="nav-links">
+                <li><a href="#philosophy">Философия</a></li>
+                <li><a href="#quiz">Опрос</a></li>
+                <li><a href="#steps">Процесс</a></li>
+                <li><a href="#about">О нас</a></li>
+            </ul>
+            <div class="nav-status">
+                <span class="pulse-dot"></span>
+                <span class="status-text">Moscow City</span>
+            </div>
+        </div>
+    </nav>
 
-// Открытие / Закрытие
-aiBtn.onclick = () => aiWin.style.display = aiWin.style.display === 'flex' ? 'none' : 'flex';
-aiClose.onclick = () => aiWin.style.display = 'none';
+    <header class="hero">
+        <div class="container hero-flex">
+            <div class="hero-content">
+                <span class="label">Private Investment Group</span>
+                <h1 class="main-title">NOLLY AGENCY</h1>
+                <div class="hero-line"></div>
+                <p class="hero-desc">Срочный выкуп активов любой сложности. Конфиденциально. Профессионально. Мгновенно.</p>
+                <div class="hero-btns">
+                    <a href="#quiz" class="btn-primary">Начать оценку</a>
+                    <a href="#steps" class="btn-secondary">Наш процесс</a>
+                </div>
+            </div>
+        </div>
+        <div class="glow" id="cursor-glow"></div>
+    </header>
 
-// Генерация кнопок с вопросами
-aiAnswers.forEach(item => {
-    const b = document.createElement('button');
-    b.innerText = item.q;
-    b.onclick = () => {
-        const a = document.createElement('div');
-        a.style.cssText = "font-size:12px; color:#c5a059; background:#1a1a1a; padding:15px; border-radius:12px; margin-top:10px; border-left:2px solid #c5a059;";
-        a.innerHTML = `<span style="font-size:9px; opacity:0.5; display:block; margin-bottom:5px;">Ответ ассистента:</span>${item.a}`;
-        aiScroll.appendChild(a);
-        aiScroll.scrollTop = aiScroll.scrollHeight;
-    };
-    aiOptions.appendChild(b);
-});
+    <section class="section" id="philosophy">
+        <div class="container">
+            <span class="section-label">Our Philosophy</span>
+            <div class="philosophy-box">
+                <h2>Мы освобождаем ваше время для будущего.</h2>
+                <p>В мире NOLLY Agency недвижимость — это ликвидный инструмент, а не бремя. Мы создаем безупречный сервис, где каждая деталь пропитана уважением к вашему статусу.</p>
+            </div>
+        </div>
+    </section>
 
-// 3. ИНТЕРАКТИВНЫЙ КВИЗ
-const cards = document.querySelectorAll('.quiz-card');
-const res = document.getElementById('quiz-result');
+    <section class="section bg-soft" id="quiz">
+        <div class="container">
+            <span class="section-label">Quick Analysis</span>
+            <div class="quiz-container">
+                <div class="quiz-info">
+                    <h3>В какой сфере вам нужна помощь?</h3>
+                    <p>Выберите тип объекта для моментального анализа</p>
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <span class="card-num">01</span>
+                        <h4>Жилая</h4>
+                        <p>Квартиры и апартаменты</p>
+                    </div>
+                    <div class="quiz-card">
+                        <span class="card-num">02</span>
+                        <h4>Коммерция</h4>
+                        <p>Офисы и ритейл</p>
+                    </div>
+                    <div class="quiz-card">
+                        <span class="card-num">03</span>
+                        <h4>Загородная</h4>
+                        <p>Резиденции и виллы</p>
+                    </div>
+                    <div class="quiz-card">
+                        <span class="card-num">04</span>
+                        <h4>Активы</h4>
+                        <p>Земля и проекты</p>
+                    </div>
+                </div>
+                <div id="quiz-result"></div>
+            </div>
+        </div>
+    </section>
 
-cards.forEach(c => {
-    c.onclick = () => {
-        cards.forEach(card => card.style.borderColor = 'rgba(255,255,255,0.08)');
-        c.style.borderColor = '#c5a059';
-        res.innerHTML = `<div style="margin-top:25px; padding:20px; background:rgba(197,160,89,0.1); border-radius:15px; color:#c5a059; font-weight:800; font-size:12px; text-align:center; text-transform:uppercase;">Сектор "${c.querySelector('h4').innerText}" выбран. Аналитик свяжется с вами через 5 минут.</div>`;
-    };
-});
+    <section class="section" id="steps">
+        <div class="container">
+            <span class="section-label">Step by Step</span>
+            <h2 style="margin-bottom: 40px; font-weight: 800;">Процесс выкупа</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header"><span>01</span> Экспресс-анализ</div>
+                    <div class="step-content">Оценка объекта по фото и кадастровому номеру в течение 15 минут.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>02</span> Выезд эксперта</div>
+                    <div class="step-content">Визуальный осмотр объекта нашим специалистом в удобное для вас время.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>03</span> Юр. аудит</div>
+                    <div class="step-content">Проверка документов и обременений юридическим департаментом NOLLY.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>04</span> Финальный оффер</div>
+                    <div class="step-content">Озвучиваем итоговую стоимость, которая фиксируется в договоре.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>05</span> Встреча в Сити</div>
+                    <div class="step-content">Согласование деталей сделки в офисе Башни Федерация.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>06</span> Подготовка ДКП</div>
+                    <div class="step-content">Полное формирование пакета документов для перехода права собственности.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>07</span> Подписание</div>
+                    <div class="step-content">Нотариальное заверение сделки и подписание договора купли-продажи.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>08</span> Безопасный расчет</div>
+                    <div class="step-content">Использование банковских ячеек или аккредитивов для вашей защиты.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>09</span> Регистрация</div>
+                    <div class="step-content">Подача документов в Росреестр нашими юристами.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header"><span>10</span> Передача ключей</div>
+                    <div class="step-content">Финальный акт приема-передачи и полный доступ к средствам.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// 4. ПЛАВНОЕ ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
+    <section class="section bg-soft" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-contact">
+                    <span class="section-label">Headquarters</span>
+                    <h2 style="font-weight: 800;">Москва-Сити</h2>
+                    <p>Пресненская наб., 12<br>Башня Федерация, 74 этаж</p>
+                </div>
+                <div class="about-cta">
+                    <a href="tel:88005550000" class="phone-link">8 800 555 NOLLY</a>
+                    <p style="color: var(--dim);">deal@nolly.agency</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-document.querySelectorAll('.step-card, .quiz-card, .philosophy-box').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.2, 1)';
-    observer.observe(el);
-});
+    <div class="ai-box" id="ai-container">
+        <div class="ai-window" id="ai-window">
+            <div class="ai-head"><span>NOLLY AI Assistant</span><button id="ai-close">✕</button></div>
+            <div class="ai-body" id="ai-scroll">
+                <p style="font-size:12px; opacity:0.7; margin-bottom:15px;">Приветствуем. Выберите тему вопроса:</p>
+                <div class="ai-list" id="ai-options"></div>
+            </div>
+        </div>
+        <button class="ai-btn" id="ai-open">AI</button>
+    </div>
 
-// 5. СВЕЧЕНИЕ ЗА КУРСОРОМ
-const glow = document.getElementById('cursor-glow');
-document.addEventListener('mousemove', (e) => {
-    requestAnimationFrame(() => {
-        glow.style.left = `${e.clientX}px`;
-        glow.style.top = `${e.clientY}px`;
-    });
-});
+    <footer class="footer">
+        <div class="container"><p>© 2024 NOLLY AGENCY. PRIVATE EQUITY GROUP.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

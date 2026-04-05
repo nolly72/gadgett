@@ -51,7 +51,7 @@ body {
 
 /* 3. ГЛАВНЫЙ ЭКРАН */
 .hero { height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-.hero-flex { display: flex; justify-content: center; text-align: center; }
+.hero-flex { display: flex; justify-content: center; text-align: center; width: 100%; }
 .main-title { 
     font-size: clamp(48px, 12vw, 110px); 
     font-weight: 800; 
@@ -76,23 +76,62 @@ body {
 }
 .btn-primary:hover { background: white; transform: translateY(-5px); }
 
-/* 4. КВИЗ И ПРОЦЕСС */
+/* 4. КВИЗ */
 .quiz-container { background: #0c0c0c; padding: 60px 40px; border-radius: var(--radius); border: 1px solid var(--border); }
 .quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; }
 .quiz-card { background: #121212; border: 1px solid var(--border); padding: 40px 30px; border-radius: var(--radius); cursor: pointer; transition: 0.4s; }
 .quiz-card:hover { border-color: var(--gold); transform: translateY(-8px); }
 .card-num { color: var(--gold); font-weight: 800; font-size: 12px; margin-bottom: 20px; display: block; }
 
+/* 5. ПРОЦЕСС ВЫКУПА (АККОРДЕОН) */
 .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.step-card { background: #0c0c0c; padding: 35px; border-radius: var(--radius); border: 1px solid var(--border); font-weight: 700; color: var(--dim); }
-.step-card span { color: var(--gold); font-size: 20px; margin-right: 15px; }
+.step-card { 
+    background: #0c0c0c; padding: 35px; 
+    border-radius: var(--radius); 
+    border: 1px solid var(--border); 
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.step-header { 
+    display: flex; 
+    align-items: center; 
+    font-size: 16px; 
+    font-weight: 700;
+    color: var(--dim);
+}
+.step-header span { color: var(--gold); font-size: 20px; margin-right: 15px; font-weight: 900; }
 
-/* 5. О НАС И ФИЛОСОФИЯ */
+.step-content {
+    max-height: 0;
+    opacity: 0;
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+    transition: all 0.4s ease;
+    padding-left: 50px; /* Выравнивание под текст заголовка */
+}
+
+/* Состояние при нажатии */
+.step-card.active {
+    background: #121212;
+    border-color: var(--gold);
+}
+.step-card.active .step-header { color: white; }
+.step-card.active .step-content {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+/* 6. О НАС И ФИЛОСОФИЯ */
 .philosophy-box h2 { font-size: clamp(32px, 6vw, 56px); font-weight: 800; margin-bottom: 30px; letter-spacing: -2px; }
 .about-grid { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px; }
 .phone-link { font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: var(--gold); text-decoration: none; display: block; margin-bottom: 10px; }
 
-/* 6. AI ВИДЖЕТ */
+/* 7. AI ВИДЖЕТ */
 .ai-box { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
 .ai-btn { width: 65px; height: 65px; border-radius: 22px; background: var(--gold); border: none; font-weight: 800; cursor: pointer; box-shadow: 0 15px 40px rgba(197, 160, 89, 0.4); }
 .ai-window { position: absolute; bottom: 85px; right: 0; width: 330px; background: #0f0f0f; border: 1px solid var(--border); border-radius: var(--radius); display: none; flex-direction: column; overflow: hidden; }
@@ -103,15 +142,17 @@ body {
 
 .glow { position: fixed; width: 400px; height: 400px; background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 1; filter: blur(80px); transform: translate(-50%, -50%); }
 
-/* 7. МОБИЛЬНАЯ АДАПТАЦИЯ (Жесткие рамки) */
+/* 8. АДАПТАЦИЯ */
 @media (max-width: 768px) {
     .nav-links, .nav-status { display: none; }
     .hero-flex { text-align: center; }
-    .hero-btns { flex-direction: column; gap: 10px; width: 100%; }
+    .hero-btns { flex-direction: column; gap: 10px; width: 100%; padding: 0 20px; }
     .steps-grid { grid-template-columns: 1fr; }
     .about-grid { flex-direction: column; text-align: center; align-items: center; }
     .ai-window { width: calc(100vw - 40px); right: -10px; }
     .section { padding: 80px 0; }
+    .step-card { padding: 25px; }
+    .step-content { padding-left: 40px; }
 }
 
 .footer { padding: 50px 0; border-top: 1px solid var(--border); text-align: center; font-size: 10px; color: #333; letter-spacing: 2px; }
